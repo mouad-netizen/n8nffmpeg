@@ -9,6 +9,8 @@ RUN npm install -g n8n
 # dossier de travail
 WORKDIR /data
 
+# port utilisé par n8n
 EXPOSE 5678
 
-CMD ["n8n"]
+# démarrage correct de n8n
+CMD ["n8n", "start"]
