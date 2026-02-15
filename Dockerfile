@@ -1,5 +1,14 @@
-FROM n8nio/n8n:latest-debian
+FROM node:18-bullseye
 
-USER root
+# installer ffmpeg
 RUN apt-get update && apt-get install -y ffmpeg
-USER node
+
+# installer n8n
+RUN npm install -g n8n
+
+# dossier de travail
+WORKDIR /data
+
+EXPOSE 5678
+
+CMD ["n8n"]
