@@ -1,6 +1,10 @@
-FROM n8nio/n8n:1.73.0
+FROM jrottenberg/ffmpeg:6.0-ubuntu
 
-USER root
-RUN apt-get update && apt-get install -y ffmpeg
+RUN apt-get update && apt-get install -y nodejs npm
+RUN npm install -g n8n
 
-USER node
+WORKDIR /data
+
+EXPOSE 5678
+
+CMD ["n8n", "start"]
